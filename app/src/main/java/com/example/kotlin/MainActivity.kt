@@ -1,4 +1,4 @@
-package com.example.kotlin.grammar
+package com.example.kotlin
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,6 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kotlin.ui.theme.KotlinTheme
+
+
+/*
+* 1. Activity가 실행, 종료 생명주기
+* 2. 다른 앱 실행 시(홈버튼), 생명주기
+* 3. 다른 Activity 실행 시, 생명주기
+*/
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
