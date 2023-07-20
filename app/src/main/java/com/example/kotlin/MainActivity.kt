@@ -1,6 +1,7 @@
 package com.example.kotlin
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +16,8 @@ import com.example.kotlin.ui.theme.KotlinTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        val view = View(this)
+//        view.setOnClickListener { println("람다") }
         setContent {
             KotlinTheme {
                 // A surface container using the 'background' color from the theme
