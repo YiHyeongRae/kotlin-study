@@ -1,4 +1,4 @@
-package com.example.kotlin
+package com.example.kotlin.grammar
 
 fun main(){
     // 람다식 ::: 익명함수

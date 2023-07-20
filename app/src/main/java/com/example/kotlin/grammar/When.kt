@@ -1,4 +1,4 @@
-package com.example.kotlin
+package com.example.kotlin.grammar
 
 fun main(){
     max(10,5)

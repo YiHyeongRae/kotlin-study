@@ -1,6 +1,6 @@
-package com.example.kotlin
+package com.example.kotlin.grammar
 
-import com.example.kotlin.Book.Novel.NAME
+import com.example.kotlin.grammar.Book.Novel.NAME
 
 fun main(){
 

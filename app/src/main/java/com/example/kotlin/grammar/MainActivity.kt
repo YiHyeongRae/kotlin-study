@@ -1,7 +1,6 @@
-package com.example.kotlin
+package com.example.kotlin.grammar
 
 import android.os.Bundle
-import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize

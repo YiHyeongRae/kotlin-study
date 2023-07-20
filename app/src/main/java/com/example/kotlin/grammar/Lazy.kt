@@ -1,4 +1,4 @@
-package com.example.kotlin
+package com.example.kotlin.grammar
 
 // lateinit 은 var 만 가능 && Type지정
 lateinit var text : String
@@ -16,7 +16,7 @@ fun main(){
     println(text)
 
     println("메인 함수 실행")
-    println("${test} 초기화 한 값")
-    println("${test} 두번째 초기화?")
+    println("$test 초기화 한 값")
+    println("$test 두번째 초기화?")
 
 }
