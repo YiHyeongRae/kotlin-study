@@ -1,10 +1,23 @@
 package com.example.kotlin
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Send
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -41,8 +54,11 @@ class MainActivity : ComponentActivity() {
 //                ) {
 //                    Greeting("Android")
 //                }
-                Greeting("Android")
+//                Greeting("Android")
+                ButtonExample(onButtonClicked = {
+                    Toast.makeText(this,"Send Clicked",Toast.LENGTH_SHORT).show()
 
+                })
             }
         }
     }
@@ -66,10 +82,29 @@ fun Greeting(name: String) {
     )
 }
 
+@Composable
+fun ButtonExample(onButtonClicked:()->Unit){
+    Button(onClick = onButtonClicked, enabled = true,
+    border = BorderStroke(10.dp,Color.Magenta),
+        // shape === border-radius
+    shape = CircleShape,
+        contentPadding = PaddingValues(20.dp)
+    ){
+        Icon(
+            imageVector = Icons.Filled.Send,
+            contentDescription = "Send"
+        )
+        // ButtonDefaults에서 기본적으로 제공하는 IconSpacing으로 사이즈가 있음
+        Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
+        Text(text = "Send")
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     KotlinTheme {
-        Greeting("Android")
+//        Greeting("Android")
+        ButtonExample(onButtonClicked = {})
     }
 }
