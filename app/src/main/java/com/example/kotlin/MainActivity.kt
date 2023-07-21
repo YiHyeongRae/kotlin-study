@@ -9,8 +9,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -21,6 +23,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Button
@@ -70,8 +74,10 @@ class MainActivity : ComponentActivity() {
 
 //                ModifierExample()
 //                SurfaceExample(name = "IOS??");
-                BoxExample()
+//                BoxExample()
+                RowExample()
             }
+
         }
     }
 }
@@ -160,26 +166,70 @@ fun ModifierExample(){
 //    }
 //}
 
-@Composable
-fun BoxExample(){
-//    Box(modifier = Modifier.size(100.dp)){
-//        Text(text="Hello World", modifier = Modifier.align(Alignment.BottomEnd))
-//        Text(text="Jetpack", modifier = Modifier.align(Alignment.CenterEnd))
-//        Text(text="Compose", modifier = Modifier.align(Alignment.TopStart))
-//    }
-//
-//    Box(modifier=Modifier.size(100.dp)){
+//@Composable
+//fun BoxExample(){
+////    Box(modifier = Modifier.size(100.dp)){
+////        Text(text="Hello World", modifier = Modifier.align(Alignment.BottomEnd))
+////        Text(text="Jetpack", modifier = Modifier.align(Alignment.CenterEnd))
+////        Text(text="Compose", modifier = Modifier.align(Alignment.TopStart))
+////    }
+////
+////    Box(modifier=Modifier.size(100.dp)){
+////        // 먼저 작성한 Box가 아래에 깔림
+////        Box(modifier = Modifier.size(70.dp).background(Color.Cyan).align(Alignment.CenterStart))
+////        Box(modifier = Modifier.size(70.dp).background(Color.Yellow).align(Alignment.BottomEnd))
+////
+////    }
+//    Box(){
 //        // 먼저 작성한 Box가 아래에 깔림
-//        Box(modifier = Modifier.size(70.dp).background(Color.Cyan).align(Alignment.CenterStart))
-//        Box(modifier = Modifier.size(70.dp).background(Color.Yellow).align(Alignment.BottomEnd))
+//        Box(modifier = Modifier.fillMaxSize().background(Color.Cyan).align(Alignment.CenterStart))
+//        Box(modifier = Modifier.size(70.dp).background(Color.Yellow).align(Alignment.Center))
 //
 //    }
-    Box(){
-        // 먼저 작성한 Box가 아래에 깔림
-        Box(modifier = Modifier.fillMaxSize().background(Color.Cyan).align(Alignment.CenterStart))
-        Box(modifier = Modifier.size(70.dp).background(Color.Yellow).align(Alignment.Center))
+//}
 
-    }
+@Composable
+fun RowExample(){
+//    Row(modifier = Modifier.height(40.dp)){
+//        Text("첫번째!", modifier = Modifier.align(Alignment.Top))
+//        Text("두번째!", modifier = Modifier.align(Alignment.CenterVertically))
+//        Text("세번째!", modifier = Modifier.align(Alignment.Bottom))
+//    }
+
+//    Row(modifier = Modifier.height(40.dp), verticalAlignment = Alignment.Bottom){
+//        Text("첫번째!")
+//        Text("두번째!" , modifier = Modifier.align(Alignment.Top))
+//        Text("세번째!")
+//    }
+
+//    Row(modifier = Modifier.width(200.dp).height(40.dp),
+//        verticalAlignment = Alignment.Bottom,
+//        horizontalArrangement = Arrangement.SpaceEvenly,
+//        ){
+//        Text("첫번째!")
+//        Text("두번째!" , modifier = Modifier.align(Alignment.Top))
+//        Text("세번째!")
+//    }
+
+//        Row(modifier = Modifier.width(200.dp).height(40.dp),
+//            verticalAlignment = Alignment.Bottom,
+//        ){
+//            Text("첫번째!",modifier = Modifier.align(Alignment.Top).weight(3f))
+//            Text("두번째!", modifier = Modifier.align(Alignment.Top).weight(1f))
+//            Text("세번째!", modifier = Modifier.align(Alignment.Top).weight(3f))
+//        }
+
+
+        Row(modifier = Modifier.width(200.dp).height(40.dp),
+            verticalAlignment = Alignment.Bottom,
+        ){
+            Text("첫번째!",textAlign = TextAlign.End, modifier = Modifier.align(Alignment.Top).weight(3f).background(Color.Magenta))
+            Icon(imageVector = Icons.Filled.AccountBox,
+            contentDescription = "AccountBox",
+            modifier = Modifier.weight(1f).background(Color.Cyan))
+            Text("세번째!",textAlign = TextAlign.Center, modifier = Modifier.align(Alignment.Bottom).weight(3f).background(Color.Blue))
+        }
+
 }
 @Preview(showBackground = true)
 @Composable
@@ -189,8 +239,12 @@ fun GreetingPreview() {
 //        ButtonExample(onButtonClicked = {})
 //        ModifierExample()
 //        SurfaceExample("IOS!!")
-            BoxExample()
+//            BoxExample()
+        RowExample()
+
+
     }
+
 
 
 }
