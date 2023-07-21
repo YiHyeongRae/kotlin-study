@@ -65,7 +65,8 @@ class MainActivity : ComponentActivity() {
 //                    Toast.makeText(this,"Send Clicked",Toast.LENGTH_SHORT).show()
 //                })
 
-                ModifierExample()
+//                ModifierExample()
+                SurfaceExample(name = "IOS??");
             }
         }
     }
@@ -111,7 +112,9 @@ fun ButtonExample(onButtonClicked:()->Unit){
 
 @Composable
 fun ModifierExample(){
-    Button(onClick = {},modifier= Modifier.size(300.dp).padding(50.dp),
+    Button(onClick = {},modifier= Modifier
+        .size(300.dp)
+        .padding(50.dp),
         // width, height 모두 사용한다면 size가 더 생산적
         // height(100.dp).width(200.dp)
             colors = ButtonDefaults.buttonColors(
@@ -129,11 +132,28 @@ fun ModifierExample(){
 
         )
         Spacer(
-            modifier = Modifier.size(ButtonDefaults.IconSpacing)
-                    .background(Color.Green)
+            modifier = Modifier
+                .size(ButtonDefaults.IconSpacing)
+                .background(Color.Green)
 
         )
         Text("Search", modifier = Modifier.background(Color.Yellow))}
+}
+
+@Composable
+fun SurfaceExample(name : String){
+    Surface(
+        modifier = Modifier.padding(5.dp),
+        shadowElevation = 10.dp,
+        border = BorderStroke(width = 2.dp, color = Color.Magenta),
+        shape = CircleShape,
+        color = MaterialTheme.colorScheme.error
+
+
+    ){
+        Text(text="Hello $name",modifier = Modifier.padding(8.dp))
+
+    }
 }
 @Preview(showBackground = true)
 @Composable
@@ -141,6 +161,8 @@ fun GreetingPreview() {
     KotlinTheme {
 //        Greeting("Android")
 //        ButtonExample(onButtonClicked = {})
-        ModifierExample()
+//        ModifierExample()
+        SurfaceExample("IOS!!")
     }
+
 }
