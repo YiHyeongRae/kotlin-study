@@ -1,5 +1,6 @@
 package com.example.kotlin
 
+import android.graphics.Paint.Align
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -8,6 +9,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,6 +30,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
@@ -66,7 +69,8 @@ class MainActivity : ComponentActivity() {
 //                })
 
 //                ModifierExample()
-                SurfaceExample(name = "IOS??");
+//                SurfaceExample(name = "IOS??");
+                BoxExample()
             }
         }
     }
@@ -140,18 +144,40 @@ fun ModifierExample(){
         Text("Search", modifier = Modifier.background(Color.Yellow))}
 }
 
+//@Composable
+//fun SurfaceExample(name : String){
+//    Surface(
+//        modifier = Modifier.padding(5.dp),
+//        shadowElevation = 10.dp,
+//        border = BorderStroke(width = 2.dp, color = Color.Magenta),
+//        shape = CircleShape,
+//        color = MaterialTheme.colorScheme.error
+//
+//
+//    ){
+//        Text(text="Hello $name",modifier = Modifier.padding(8.dp))
+//
+//    }
+//}
+
 @Composable
-fun SurfaceExample(name : String){
-    Surface(
-        modifier = Modifier.padding(5.dp),
-        shadowElevation = 10.dp,
-        border = BorderStroke(width = 2.dp, color = Color.Magenta),
-        shape = CircleShape,
-        color = MaterialTheme.colorScheme.error
-
-
-    ){
-        Text(text="Hello $name",modifier = Modifier.padding(8.dp))
+fun BoxExample(){
+//    Box(modifier = Modifier.size(100.dp)){
+//        Text(text="Hello World", modifier = Modifier.align(Alignment.BottomEnd))
+//        Text(text="Jetpack", modifier = Modifier.align(Alignment.CenterEnd))
+//        Text(text="Compose", modifier = Modifier.align(Alignment.TopStart))
+//    }
+//
+//    Box(modifier=Modifier.size(100.dp)){
+//        // 먼저 작성한 Box가 아래에 깔림
+//        Box(modifier = Modifier.size(70.dp).background(Color.Cyan).align(Alignment.CenterStart))
+//        Box(modifier = Modifier.size(70.dp).background(Color.Yellow).align(Alignment.BottomEnd))
+//
+//    }
+    Box(){
+        // 먼저 작성한 Box가 아래에 깔림
+        Box(modifier = Modifier.fillMaxSize().background(Color.Cyan).align(Alignment.CenterStart))
+        Box(modifier = Modifier.size(70.dp).background(Color.Yellow).align(Alignment.Center))
 
     }
 }
@@ -162,7 +188,9 @@ fun GreetingPreview() {
 //        Greeting("Android")
 //        ButtonExample(onButtonClicked = {})
 //        ModifierExample()
-        SurfaceExample("IOS!!")
+//        SurfaceExample("IOS!!")
+            BoxExample()
     }
+
 
 }
