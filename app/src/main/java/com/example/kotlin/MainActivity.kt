@@ -6,14 +6,20 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -55,10 +61,11 @@ class MainActivity : ComponentActivity() {
 //                    Greeting("Android")
 //                }
 //                Greeting("Android")
-                ButtonExample(onButtonClicked = {
-                    Toast.makeText(this,"Send Clicked",Toast.LENGTH_SHORT).show()
+//                ButtonExample(onButtonClicked = {
+//                    Toast.makeText(this,"Send Clicked",Toast.LENGTH_SHORT).show()
+//                })
 
-                })
+                ModifierExample()
             }
         }
     }
@@ -82,6 +89,7 @@ fun Greeting(name: String) {
     )
 }
 
+/*
 @Composable
 fun ButtonExample(onButtonClicked:()->Unit){
     Button(onClick = onButtonClicked, enabled = true,
@@ -99,12 +107,40 @@ fun ButtonExample(onButtonClicked:()->Unit){
         Text(text = "Send")
     }
 }
+*/
 
+@Composable
+fun ModifierExample(){
+    Button(onClick = {},modifier= Modifier.size(300.dp).padding(50.dp),
+        // width, height 모두 사용한다면 size가 더 생산적
+        // height(100.dp).width(200.dp)
+            colors = ButtonDefaults.buttonColors(
+                // backgroundColor가 containerColor로 변경된듯
+                containerColor = Color.Magenta,
+                contentColor = Color.Cyan,
+            ),
+            shape = RoundedCornerShape(0),
+
+    ){
+        Icon(
+            imageVector = Icons.Filled.Search,
+            contentDescription = "Search",
+            modifier = Modifier.background(Color.Blue)
+
+        )
+        Spacer(
+            modifier = Modifier.size(ButtonDefaults.IconSpacing)
+                    .background(Color.Green)
+
+        )
+        Text("Search", modifier = Modifier.background(Color.Yellow))}
+}
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     KotlinTheme {
 //        Greeting("Android")
-        ButtonExample(onButtonClicked = {})
+//        ButtonExample(onButtonClicked = {})
+        ModifierExample()
     }
 }
