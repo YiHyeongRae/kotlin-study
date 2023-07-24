@@ -11,6 +11,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -75,30 +76,31 @@ class MainActivity : ComponentActivity() {
 //                ModifierExample()
 //                SurfaceExample(name = "IOS??");
 //                BoxExample()
-                RowExample()
+//                RowExample()
+                ColumnExample()
             }
 
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(
-        modifier = Modifier.fillMaxSize(),
-        text = "Hello $name\nHello $name\nHello $name",
-//        color = Color.Red
-//        color = Color(0xffff9944)
-        color = Color(0xffeeddccbbaa),
-        fontSize = 30.sp,
-        fontWeight = FontWeight.Bold,
-        fontFamily = FontFamily.Cursive,
-        letterSpacing = 2.sp,
-        maxLines = 2,
-        textDecoration = TextDecoration.Underline,
-        textAlign = TextAlign.Center,
-    )
-}
+//@Composable
+//fun Greeting(name: String) {
+//    Text(
+//        modifier = Modifier.fillMaxSize(),
+//        text = "Hello $name\nHello $name\nHello $name",
+////        color = Color.Red
+////        color = Color(0xffff9944)
+//        color = Color(0xffeeddccbbaa),
+//        fontSize = 30.sp,
+//        fontWeight = FontWeight.Bold,
+//        fontFamily = FontFamily.Cursive,
+//        letterSpacing = 2.sp,
+//        maxLines = 2,
+//        textDecoration = TextDecoration.Underline,
+//        textAlign = TextAlign.Center,
+//    )
+//}
 
 /*
 @Composable
@@ -120,35 +122,35 @@ fun ButtonExample(onButtonClicked:()->Unit){
 }
 */
 
-@Composable
-fun ModifierExample(){
-    Button(onClick = {},modifier= Modifier
-        .size(300.dp)
-        .padding(50.dp),
-        // width, height 모두 사용한다면 size가 더 생산적
-        // height(100.dp).width(200.dp)
-            colors = ButtonDefaults.buttonColors(
-                // backgroundColor가 containerColor로 변경된듯
-                containerColor = Color.Magenta,
-                contentColor = Color.Cyan,
-            ),
-            shape = RoundedCornerShape(0),
-
-    ){
-        Icon(
-            imageVector = Icons.Filled.Search,
-            contentDescription = "Search",
-            modifier = Modifier.background(Color.Blue)
-
-        )
-        Spacer(
-            modifier = Modifier
-                .size(ButtonDefaults.IconSpacing)
-                .background(Color.Green)
-
-        )
-        Text("Search", modifier = Modifier.background(Color.Yellow))}
-}
+//@Composable
+//fun ModifierExample(){
+//    Button(onClick = {},modifier= Modifier
+//        .size(300.dp)
+//        .padding(50.dp),
+//        // width, height 모두 사용한다면 size가 더 생산적
+//        // height(100.dp).width(200.dp)
+//            colors = ButtonDefaults.buttonColors(
+//                // backgroundColor가 containerColor로 변경된듯
+//                containerColor = Color.Magenta,
+//                contentColor = Color.Cyan,
+//            ),
+//            shape = RoundedCornerShape(0),
+//
+//    ){
+//        Icon(
+//            imageVector = Icons.Filled.Search,
+//            contentDescription = "Search",
+//            modifier = Modifier.background(Color.Blue)
+//
+//        )
+//        Spacer(
+//            modifier = Modifier
+//                .size(ButtonDefaults.IconSpacing)
+//                .background(Color.Green)
+//
+//        )
+//        Text("Search", modifier = Modifier.background(Color.Yellow))}
+//}
 
 //@Composable
 //fun SurfaceExample(name : String){
@@ -188,49 +190,63 @@ fun ModifierExample(){
 //    }
 //}
 
-@Composable
-fun RowExample(){
-//    Row(modifier = Modifier.height(40.dp)){
-//        Text("첫번째!", modifier = Modifier.align(Alignment.Top))
-//        Text("두번째!", modifier = Modifier.align(Alignment.CenterVertically))
-//        Text("세번째!", modifier = Modifier.align(Alignment.Bottom))
-//    }
-
-//    Row(modifier = Modifier.height(40.dp), verticalAlignment = Alignment.Bottom){
-//        Text("첫번째!")
-//        Text("두번째!" , modifier = Modifier.align(Alignment.Top))
-//        Text("세번째!")
-//    }
-
-//    Row(modifier = Modifier.width(200.dp).height(40.dp),
-//        verticalAlignment = Alignment.Bottom,
-//        horizontalArrangement = Arrangement.SpaceEvenly,
-//        ){
-//        Text("첫번째!")
-//        Text("두번째!" , modifier = Modifier.align(Alignment.Top))
-//        Text("세번째!")
-//    }
-
+//@Composable
+//fun RowExample(){
+////    Row(modifier = Modifier.height(40.dp)){
+////        Text("첫번째!", modifier = Modifier.align(Alignment.Top))
+////        Text("두번째!", modifier = Modifier.align(Alignment.CenterVertically))
+////        Text("세번째!", modifier = Modifier.align(Alignment.Bottom))
+////    }
+//
+////    Row(modifier = Modifier.height(40.dp), verticalAlignment = Alignment.Bottom){
+////        Text("첫번째!")
+////        Text("두번째!" , modifier = Modifier.align(Alignment.Top))
+////        Text("세번째!")
+////    }
+//
+////    Row(modifier = Modifier.width(200.dp).height(40.dp),
+////        verticalAlignment = Alignment.Bottom,
+////        horizontalArrangement = Arrangement.SpaceEvenly,
+////        ){
+////        Text("첫번째!")
+////        Text("두번째!" , modifier = Modifier.align(Alignment.Top))
+////        Text("세번째!")
+////    }
+//
+////        Row(modifier = Modifier.width(200.dp).height(40.dp),
+////            verticalAlignment = Alignment.Bottom,
+////        ){
+////            Text("첫번째!",modifier = Modifier.align(Alignment.Top).weight(3f))
+////            Text("두번째!", modifier = Modifier.align(Alignment.Top).weight(1f))
+////            Text("세번째!", modifier = Modifier.align(Alignment.Top).weight(3f))
+////        }
+//
+//
 //        Row(modifier = Modifier.width(200.dp).height(40.dp),
 //            verticalAlignment = Alignment.Bottom,
 //        ){
-//            Text("첫번째!",modifier = Modifier.align(Alignment.Top).weight(3f))
-//            Text("두번째!", modifier = Modifier.align(Alignment.Top).weight(1f))
-//            Text("세번째!", modifier = Modifier.align(Alignment.Top).weight(3f))
+//            Text("첫번째!",textAlign = TextAlign.End, modifier = Modifier.align(Alignment.Top).weight(3f).background(Color.Magenta))
+//            Icon(imageVector = Icons.Filled.AccountBox,
+//            contentDescription = "AccountBox",
+//            modifier = Modifier.weight(1f).background(Color.Cyan))
+//            Text("세번째!",textAlign = TextAlign.Center, modifier = Modifier.align(Alignment.Bottom).weight(3f).background(Color.Blue))
 //        }
+//
+//}
 
-
-        Row(modifier = Modifier.width(200.dp).height(40.dp),
-            verticalAlignment = Alignment.Bottom,
-        ){
-            Text("첫번째!",textAlign = TextAlign.End, modifier = Modifier.align(Alignment.Top).weight(3f).background(Color.Magenta))
-            Icon(imageVector = Icons.Filled.AccountBox,
-            contentDescription = "AccountBox",
-            modifier = Modifier.weight(1f).background(Color.Cyan))
-            Text("세번째!",textAlign = TextAlign.Center, modifier = Modifier.align(Alignment.Bottom).weight(3f).background(Color.Blue))
-        }
-
+@Composable
+fun ColumnExample(){
+    Column(
+        modifier = Modifier.size(100.dp),
+        horizontalAlignment = Alignment.End,
+        verticalArrangement = Arrangement.Bottom,
+    ){
+        Text("첫 번째", modifier = Modifier.align(Alignment.CenterHorizontally))
+        Text("두 번째")
+        Text("세 번째", modifier = Modifier.align(Alignment.Start))
+    }
 }
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
@@ -240,8 +256,8 @@ fun GreetingPreview() {
 //        ModifierExample()
 //        SurfaceExample("IOS!!")
 //            BoxExample()
-        RowExample()
-
+//        RowExample()
+        ColumnExample()
 
     }
 
