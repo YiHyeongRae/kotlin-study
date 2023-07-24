@@ -11,16 +11,19 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -77,8 +80,10 @@ class MainActivity : ComponentActivity() {
 //                SurfaceExample(name = "IOS??");
 //                BoxExample()
 //                RowExample()
-                ColumnExample()
+//                ColumnExample()
+                Outer()
             }
+
 
         }
     }
@@ -234,19 +239,41 @@ fun ButtonExample(onButtonClicked:()->Unit){
 //
 //}
 
+//@Composable
+//fun ColumnExample(){
+//    Column(
+//        modifier = Modifier.size(100.dp),
+//        horizontalAlignment = Alignment.End,
+//        verticalArrangement = Arrangement.Bottom,
+//    ){
+//        Text("첫 번째", modifier = Modifier.align(Alignment.CenterHorizontally))
+//        Text("두 번째")
+//        Text("세 번째", modifier = Modifier.align(Alignment.Start))
+//    }
+//}
 @Composable
-fun ColumnExample(){
-    Column(
-        modifier = Modifier.size(100.dp),
-        horizontalAlignment = Alignment.End,
-        verticalArrangement = Arrangement.Bottom,
-    ){
-        Text("첫 번째", modifier = Modifier.align(Alignment.CenterHorizontally))
-        Text("두 번째")
-        Text("세 번째", modifier = Modifier.align(Alignment.Start))
+fun Outer(){
+    Column(modifier = Modifier.width(150.dp)) {
+        Inner(modifier = Modifier
+            .width(200.dp)
+            .height(160.dp)
+        )
+        Inner(modifier = Modifier
+            .width(200.dp)
+            .height(100.dp)
+        )
     }
 }
 
+@Composable
+fun Inner(modifier: Modifier = Modifier){
+    BoxWithConstraints(modifier) {
+        if(maxHeight > 150.dp){
+            Text("여기 꽤 길군요!", modifier  = Modifier.align(Alignment.BottomCenter))
+        }
+        Text("MaxW:$maxWidth,maxH:$maxHeight,minW:$minWidth,minH:$minHeight")
+    }
+}
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
@@ -257,8 +284,8 @@ fun GreetingPreview() {
 //        SurfaceExample("IOS!!")
 //            BoxExample()
 //        RowExample()
-        ColumnExample()
-
+//        ColumnExample()
+        Outer()
     }
 
 
