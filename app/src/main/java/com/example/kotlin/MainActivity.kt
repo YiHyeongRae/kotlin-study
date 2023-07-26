@@ -51,6 +51,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
+import coil.compose.rememberImagePainter
 import com.example.kotlin.ui.theme.KotlinTheme
 
 
@@ -85,7 +87,8 @@ class MainActivity : ComponentActivity() {
 //                RowExample()
 //                ColumnExample()
 //                Outer()
-                ImageExample()
+//                ImageExample()
+            NetworkImage()
             }
 
 
@@ -279,15 +282,25 @@ fun ButtonExample(onButtonClicked:()->Unit){
 //    }
 //}
 
+//@Composable
+//fun ImageExample(){
+//    Column{
+//        Image(painter = painterResource(id = R.drawable.yulmoo), contentDescription = "Yul-Moo")
+//        Image(
+//            imageVector = Icons.Filled.Settings,
+//            contentDescription = "설정"
+//        )
+//    }
+//}
 @Composable
-fun ImageExample(){
+fun NetworkImage(){
+    // coil에서는 권장하지 않음
     Column{
-        Image(painter = painterResource(id = R.drawable.yulmoo), contentDescription = "Yul-Moo")
-        Image(
-            imageVector = Icons.Filled.Settings,
-            contentDescription = "설정"
-        )
+        val painter = rememberImagePainter(data = "https://avatars.githubusercontent.com/u/118327239?v=4")
+        Image(painter = painter, contentDescription = "YullMoo")
+        AsyncImage(model = "https://avatars.githubusercontent.com/u/118327239?v=4", contentDescription = "YullMoo2")
     }
+
 }
 @Preview(showBackground = true)
 @Composable
@@ -301,8 +314,10 @@ fun GreetingPreview() {
 //        RowExample()
 //        ColumnExample()
 //        Outer()
-        ImageExample()
+//        ImageExample()
+        NetworkImage()
     }
+
 
 
 
