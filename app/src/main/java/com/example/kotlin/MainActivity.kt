@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -31,6 +32,7 @@ import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Send
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -41,6 +43,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -81,7 +84,8 @@ class MainActivity : ComponentActivity() {
 //                BoxExample()
 //                RowExample()
 //                ColumnExample()
-                Outer()
+//                Outer()
+                ImageExample()
             }
 
 
@@ -251,27 +255,38 @@ fun ButtonExample(onButtonClicked:()->Unit){
 //        Text("세 번째", modifier = Modifier.align(Alignment.Start))
 //    }
 //}
-@Composable
-fun Outer(){
-    Column(modifier = Modifier.width(150.dp)) {
-        Inner(modifier = Modifier
-            .width(200.dp)
-            .height(160.dp)
-        )
-        Inner(modifier = Modifier
-            .width(200.dp)
-            .height(100.dp)
-        )
-    }
-}
+//@Composable
+//fun Outer(){
+//    Column(modifier = Modifier.width(150.dp)) {
+//        Inner(modifier = Modifier
+//            .width(200.dp)
+//            .height(160.dp)
+//        )
+//        Inner(modifier = Modifier
+//            .width(200.dp)
+//            .height(100.dp)
+//        )
+//    }
+//}
+
+//@Composable
+//fun Inner(modifier: Modifier = Modifier){
+//    BoxWithConstraints(modifier) {
+//        if(maxHeight > 150.dp){
+//            Text("여기 꽤 길군요!", modifier  = Modifier.align(Alignment.BottomCenter))
+//        }
+//        Text("MaxW:$maxWidth,maxH:$maxHeight,minW:$minWidth,minH:$minHeight")
+//    }
+//}
 
 @Composable
-fun Inner(modifier: Modifier = Modifier){
-    BoxWithConstraints(modifier) {
-        if(maxHeight > 150.dp){
-            Text("여기 꽤 길군요!", modifier  = Modifier.align(Alignment.BottomCenter))
-        }
-        Text("MaxW:$maxWidth,maxH:$maxHeight,minW:$minWidth,minH:$minHeight")
+fun ImageExample(){
+    Column{
+        Image(painter = painterResource(id = R.drawable.yulmoo), contentDescription = "Yul-Moo")
+        Image(
+            imageVector = Icons.Filled.Settings,
+            contentDescription = "설정"
+        )
     }
 }
 @Preview(showBackground = true)
@@ -285,7 +300,8 @@ fun GreetingPreview() {
 //            BoxExample()
 //        RowExample()
 //        ColumnExample()
-        Outer()
+//        Outer()
+        ImageExample()
     }
 
 
